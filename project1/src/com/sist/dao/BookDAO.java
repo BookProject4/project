@@ -44,13 +44,13 @@ public class BookDAO {
 			dao = new BookDAO();
 		return dao;
 	}
-
+	
 	//서브카테고리 가져오기
 	public List<String> bookCateList(String cate1){
 		List<String> list = new ArrayList<String>();
 		try {
 			getConnection();
-			String sql="SELECT subCategory FROM category where category=? ORDER BY subCategory";
+			String sql="SELECT subCategory FROM cate where category=? ORDER BY subCategory";
 			ps=conn.prepareStatement(sql);
 			ps.setString(1, cate1);
 			ResultSet rs = ps.executeQuery();
@@ -59,6 +59,7 @@ public class BookDAO {
 				list.add(rs.getString(1));
 				System.out.println(rs.getString(1));
 			}
+			System.out.println();
 			rs.close();
 		} catch (Exception e) {
 			e.printStackTrace();

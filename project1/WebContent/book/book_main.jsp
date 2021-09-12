@@ -8,6 +8,22 @@
 <title>Insert title here</title>
 </head>
 <body>
+
+<!-- Breadcrumbs -->
+	<div class="breadcrumbs">
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+					<div class="bread-inner">
+						<ul class="bread-list">
+							<li class="active"><a href="../book/book_main.do?cate1=${cate1 }">${cate1 }</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- End Breadcrumbs -->
 	<!-- Header Inner -->
 			<div class="header-inner">
 				<div class="container">
@@ -20,24 +36,15 @@
 										<div class="navbar-collapse">	
 											<div class="nav-inner">	
 												<ul class="nav main-menu menu navbar-nav">
-													<c:if test="${cate1=='국내도서'}">
-													<li class="active"><a href="#">국내도서</a>
-														<ul class="dropdown">
-															<c:forEach var="cate2" items="${cList }">
-																<li><a href="../book/book_list.do?cate1=${cate1 }&cate2=${cate2 }">${cate2 }</a></li>
-															</c:forEach>
-														</ul>
+													
+													<c:forEach var="cate2" items="${cList }">
+													<li class="active" style="display:inline;">
+													<a href="../book/book_list.do?cate1=${cate1 }&cate2=${cate2 }">${cate2 }</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 													</li>
-													</c:if>
-													<c:if test="${cate1=='외국도서'}">
-													<li><a href="#">외국도서</a>
-														<ul class="dropdown">
-															<c:forEach var="cate2" items="${cList }">
-																<li><a href="../book/book_list.do?cate1=${cate1 }&cate2=${cate2 }">${cate2 }</a></li>
-															</c:forEach>
-														</ul>
-													</li>							
-													</c:if>			
+													</c:forEach>
+													
+																			
+																
 												</ul>
 											</div>
 										</div>

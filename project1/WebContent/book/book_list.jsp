@@ -18,7 +18,7 @@
 				<div class="col-12">
 					<div class="bread-inner">
 						<ul class="bread-list">
-							<li><a href="javascript:history.back()">${cate1 }<i
+							<li><a href="../book/book_main.do?cate1=${cate1 }">${cate1 }<i
 									class="ti-arrow-right"></i></a></li>
 							<li class="active"><a href="blog-single.html">${cate2 }</a></li>
 						</ul>
