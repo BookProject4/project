@@ -181,7 +181,7 @@ public class SearchDAO {
 				getConnection();
 				if(opt.equals("title"))	
 				{
-					String sql = "SELECT category,subCategory,poster,title,subtitle,writer,publisher,etcInfo,price,discount,infotext,imgs,contentsTable,tags,publicationDay,score "
+					String sql = "SELECT category,subCategory,poster,title,subtitle,writer,publisher,etcInfo,price,discount,infotext,imgs,contentsTable,tags,publicationDay,score,isbn "
 							+ "FROM book_info " + "WHERE title LIKE ?";
 					ps = conn.prepareStatement(sql);
 					//ps.setString(1, opt);
@@ -204,11 +204,12 @@ public class SearchDAO {
 					vo.setTags(rs.getString(14));
 					vo.setPublicationDay(rs.getString(15));
 					vo.setScore(rs.getDouble(16));
+					vo.setIsbn(rs.getLong(17));
 					rs.close();					
 				}
 				else if(opt.equals("writer"))
 				{
-					String sql = "SELECT category,subCategory,poster,title,subtitle,writer,publisher,etcInfo,price,discount,infotext,imgs,contentsTable,tags,publicationDay,score "
+					String sql = "SELECT category,subCategory,poster,title,subtitle,writer,publisher,etcInfo,price,discount,infotext,imgs,contentsTable,tags,publicationDay,score,isbn "
 							+ "FROM book_info " + "WHERE writer LIKE ?";
 					ps = conn.prepareStatement(sql);
 					//ps.setString(1, opt);
@@ -231,11 +232,12 @@ public class SearchDAO {
 					vo.setTags(rs.getString(14));
 					vo.setPublicationDay(rs.getString(15));
 					vo.setScore(rs.getDouble(16));
+					vo.setIsbn(rs.getLong(17));
 					rs.close();
 				}
 				else if(opt.equals("tag"))
 				{
-					String sql = "SELECT category,subCategory,poster,title,subtitle,writer,publisher,etcInfo,price,discount,infotext,imgs,contentsTable,tags,publicationDay,score "
+					String sql = "SELECT category,subCategory,poster,title,subtitle,writer,publisher,etcInfo,price,discount,infotext,imgs,contentsTable,tags,publicationDay,score,isbn "
 							+ "FROM book_info " + "WHERE tags LIKE ?";
 					ps = conn.prepareStatement(sql);
 					//ps.setString(1, opt);
@@ -258,6 +260,7 @@ public class SearchDAO {
 					vo.setTags(rs.getString(14));
 					vo.setPublicationDay(rs.getString(15));
 					vo.setScore(rs.getDouble(16));
+					vo.setIsbn(rs.getLong(17));
 					rs.close();
 				}
 			} catch (Exception ex) {
@@ -268,4 +271,3 @@ public class SearchDAO {
 			return vo;
 		}
 	}
-

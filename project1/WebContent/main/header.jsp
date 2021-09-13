@@ -187,16 +187,16 @@
 										<div class="navbar-collapse">	
 											<div class="nav-inner">	
 												<ul class="nav main-menu menu navbar-nav">
-													<li class="active"><a href="../main/main.do">Home</a></li>
+													<li><a href="../main/main.do">Home</a></li>
 													<li><a href="#">도서(부교재포함)<i class="ti-angle-down"></i></a>
 														<ul class="dropdown">
-															<li><a href="../book/book_main.do?cate1=가정">가정</a></li>
-															<li><a href="../book/book_main.do?cate1=여가">여가</a></li>
-															<li><a href="../book/book_main.do?cate1=학문">학문</a></li>
-															<li><a href="../book/book_main.do?cate1=교육">교육</a></li>
-															<li><a href="../book/book_main.do?cate1=문학">문학</a></li>
-															<li><a href="../book/book_main.do?cate1=해외">해외</a></li>
-															<li><a href="../book/book_main.do?cate1=기타">기타</a></li>
+															<li><a href="../book/book_list.do?cate1=가정">가정</a></li>
+															<li><a href="../book/book_list.do?cate1=여가">여가</a></li>
+															<li><a href="../book/book_list.do?cate1=학문">학문</a></li>
+															<li><a href="../book/book_list.do?cate1=교육">교육</a></li>
+															<li><a href="../book/book_list.do?cate1=문학">문학</a></li>
+															<li><a href="../book/book_list.do?cate1=해외">해외</a></li>
+															<li><a href="../book/book_list.do?cate1=기타">기타</a></li>
 														</ul>
 													</li>										
 													<li><a href="#">추천<i class="ti-angle-down"></i><span class="new">New</span></a>
@@ -222,6 +222,7 @@
 				</div>
 			</div>
 			<!--/ End Header Inner -->
+		
 		
 		
 		

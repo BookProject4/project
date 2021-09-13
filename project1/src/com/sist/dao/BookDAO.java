@@ -70,7 +70,7 @@ public class BookDAO {
 		return list;
 	}
 	
-	//목록(카테고리별) -> 페이지당 몇개 가져올건지 모델에서 매개변수로 넘기기
+	//목록(2차 카테고리별) -> 페이지당 몇개 가져올건지 모델에서 매개변수로 넘기기
 	public List<BookVO> bookListData(String cate1,String cate2,int page) {
 		List<BookVO> list = new ArrayList<BookVO>();
 		try {
@@ -133,30 +133,32 @@ public class BookDAO {
 	public BookVO bookDetailData(long isbn) {
 		BookVO vo = new BookVO();
 		try {
-			String sql = "SELECT category,subCategory,poster,title,subtitle,writer,publisher,etcInfo,price,discount,text,imgs,contentsTable,tags,publicationDay,score "
+			getConnection();
+			String sql = "SELECT isbn,category,subCategory,poster,title,subtitle,writer,publisher,etcInfo,price,discount,infoText,imgs,contentsTable,tags,publicationDay,score "
 					+ "FROM book_info " + "WHERE isbn=?";
 			ps = conn.prepareStatement(sql);
 			ps.setLong(1, isbn);
 			ResultSet rs = ps.executeQuery();
 			rs.next();
-			vo.setIsbn(isbn);
-			vo.setCategory(rs.getString(1));
-			vo.setSubCategory(rs.getString(2));
-			vo.setPoster(rs.getString(3));
-			vo.setTitle(rs.getString(4));
-			vo.setSubtitle(rs.getString(5));
-			vo.setWriter(rs.getString(6));
-			vo.setPublisher(rs.getString(7));
-			vo.setEtcInfo(rs.getString(8));
-			vo.setPrice(rs.getString(9));
-			vo.setDiscount(rs.getString(10));
-			vo.setText(rs.getString(11));
-			vo.setImgs(rs.getString(12));
-			vo.setContentsTable(rs.getString(13));
-			vo.setTags(rs.getString(14));
-			vo.setPublicationDay(rs.getString(15));
-			vo.setScore(rs.getDouble(16));
+			vo.setIsbn(rs.getLong(1));
+			vo.setCategory(rs.getString(2));
+			vo.setSubCategory(rs.getString(3));
+			vo.setPoster(rs.getString(4));
+			vo.setTitle(rs.getString(5));
+			vo.setSubtitle(rs.getString(6));
+			vo.setWriter(rs.getString(7));
+			vo.setPublisher(rs.getString(8));
+			vo.setEtcInfo(rs.getString(9));
+			vo.setPrice(rs.getString(10));
+			vo.setDiscount(rs.getString(11));
+			vo.setText(rs.getString(12).trim());
+			vo.setImgs(rs.getString(13).trim());
+			vo.setContentsTable(rs.getString(14).trim());
+			vo.setTags(rs.getString(15));
+			vo.setPublicationDay(rs.getString(16));
+			vo.setScore(rs.getDouble(17));
 			rs.close();
+			System.out.println(vo.getTags());
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		} finally {
