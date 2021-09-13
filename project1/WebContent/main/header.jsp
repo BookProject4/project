@@ -96,7 +96,7 @@
 						<div class="right-bar">
 							<!-- Search Form -->
 							<div class="sinlge-bar">
-								<a href="#" class="single-icon"><i class="fa fa-user-circle-o" aria-hidden="true"></i></a>
+								<a href="../mypage/mypage.do" class="single-icon"><i class="fa fa-user-circle-o" aria-hidden="true"></i></a>
 							</div>
 							<div class="sinlge-bar shopping">
 								<a href="#" class="single-icon"><i class="ti-bag"></i> <span class="total-count">2</span></a>
@@ -155,7 +155,7 @@
 										<div class="navbar-collapse">	
 											<div class="nav-inner">	
 												<ul class="nav main-menu menu navbar-nav">
-													<li class="active"><a href="#">Home</a></li>
+													<li class="active"><a href="../main/main.do">Home</a></li>
 													<li><a href="#">도서(부교재포함)<i class="ti-angle-down"></i></a>
 														<ul class="dropdown">
 															<li><a href="../book/book_main.do?cate1=가정">가정</a></li>
@@ -174,10 +174,10 @@
 															<li><a href="#">태그</a></li>
 														</ul>
 													</li>
-													<li><a href="../community/community.do">창작마당</a></li>	
+													<li><a href="../community/list.do">창작마당</a></li>	
 													<li><a href="#">QnA</a></li>	
 													<li><a href="../contact/contact.do">문의</a></li>
-													<li><a href="#">공지사항</a></li>	
+													<li><a href="../notice/list.do">공지사항</a></li>	
 												</ul>
 											</div>
 										</div>
