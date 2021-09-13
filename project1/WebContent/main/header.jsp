@@ -1,12 +1,39 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
-<html>
+<html lang="ko">
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+<style type="text/css">
+		button {
+		  text-transform: uppercase;
+		  outline: 0;
+		  background: #F7941D;
+		  width: 60px;
+		  border: 0;
+		  padding: 3px;
+		  color: #FFFFFF;
+		  font-size: 12px;
+		  -webkit-transition: all 0.3 ease;
+		  transition: all 0.3 ease;
+		  cursor: pointer;
+		  font-family: 'Poppins', sans-serif;
+		}
+		button:hover,.form button:active,.form button:focus {
+		  background: #343a40;
+		}
+</style>
+<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+<script type="text/javascript">
+// 로그아웃
+	$(function(){
+		$('#logoutBtn').click(function(){
+			location.href="../member/logout.do";
+		})
+	})
+</script>
 </head>
-<body>
+<body class="js">
 <!-- Preloader -->
 	<div class="preloader">
 		<div class="preloader-inner">
@@ -38,11 +65,18 @@
 					<div class="col-lg-7 col-md-12 col-12">
 						<!-- Top Right -->
 						<div class="right-content">
+							<c:if test="${sessionScope.id==null }">
 							<ul class="list-main">
-								<li><i class="ti-pencil"></i> <a href="#">회원가입</a></li>
-								<li><i class="ti-key"></i><a href="#">로그인</a></li>
-								<li><i class="ti-search"></i> <a href="#">ID/PW 찾기</a></li>
+								<li><i class="ti-pencil"></i><a href="../member/join.do">회원가입</a></li>
+								<li><i class="ti-key"></i><a href="../member/login.do">로그인</a></li>
 							</ul>
+							</c:if>
+							<c:if test="${sessionScope.id!=null }">
+							<ul class="list-main">
+								<li><i class="ti-user"></i><a href="../member/m_update.do">마이페이지</a></li>
+								<button onclick="location.href='../member/main.do'" id="logoutBtn">로그아웃</button>
+							</ul>
+							</c:if>
 						</div>
 						<!-- End Top Right -->
 					</div>
