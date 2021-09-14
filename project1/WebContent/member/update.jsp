@@ -1,0 +1,231 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<style type="text/css">
+	 .row2{
+	 	width:100%;
+	 	margin:15px;
+	 	height:950px;
+	 }
+	  legend
+	 {
+	 	font-size: 16px;
+	 	padding-top: 15px;
+	 }
+	 label{
+		width:150px;
+		float:left;
+	}
+	 .form-group
+	 {
+	 	padding-bottom: 20px;
+	 }
+	 .button-wrap{
+	 	display:inline-block;
+	 }
+	 form button {
+			  text-transform: uppercase;
+			  outline: 0;
+			  background: #F7941D;
+			  width: 50px;
+			  border: 0;
+			  padding: 5px;
+			  color: #FFFFFF;
+			  font-size: 12px;
+			  -webkit-transition: all 0.3 ease;
+			  transition: all 0.3 ease;
+			  cursor: pointer;
+			  font-family: 'Poppins', sans-serif;
+	}
+	form button:hover,.form button:active,.form button:focus 
+	{
+			  background: #343a40;
+	}
+	.form-group h2
+	{
+			margin-bottom:30px;
+	}
+	</style>
+<link rel="stylesheet" href="../shadow/css/shadowbox.css">
+<script type="text/javascript" src="../shadow/js/shadowbox.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+<script type="text/javascript">
+Shadowbox.init({
+	players:['iframe']
+})
+$(function(){
+	$('#postBtn').click(function(){
+		Shadowbox.open({
+			content:'../member/postfind.jsp',
+			player:'iframe',
+			width:530,
+			height:350
+		})
+	})
+})
+</script>
+</head>
+<body>
+	<!-- Breadcrumbs -->
+		<div class="breadcrumbs">
+			<div class="container">
+				<div class="row">
+					<div class="col-12">
+						<div class="bread-inner">
+							<ul class="bread-list">
+								<li><a href="../main/main.do">Home<i class="ti-arrow-right"></i></a></li>
+								<li class="active"><a href="../member/join.do">회원가입</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- End Breadcrumbs -->
+				
+		<!-- Start Checkout -->
+		<section class="blog-single section">
+			<div class="container">
+				<div class="row2"> 
+					<div class="col-lg-8 col-12">
+						<div class="update-form">
+							<!-- Form -->
+							 <form method="post" action="../member/update_ok.do" id="updateFrm" name="updateFrm">
+								<div class="row">
+									<div class="col-sm-4 col-sm-8">
+										<div class="form-group">
+											<h2>개인정보 수정</h2>
+											<legend>로그인 정보</legend>
+											<label>아이디</label>
+											<p>${vo.id }</p>
+										</div>
+									</div>
+									<div class="col-sm-4 col-sm-8">
+										<div class="form-group">
+											<label>비밀번호</label>
+											<p>**********</p>
+										</div>
+									</div>
+									<div class="col-sm-4 col-sm-8">
+										<div class="form-group">
+											<legend>회원 정보</legend>
+											<label>성명<span>*</span></label>
+											<input type="text" name="name" id="name" size=20 placeholder="" required="required" value="${vo.name }">
+										</div>
+									</div>
+									<div class="col-sm-4 col-sm-8">
+										<div class="form-group">
+											<label>생년월일<span>*</span></label>
+											<input type="date" name="birthday" id="birthday" placeholder="" required="required" value="${vo.birthday }">
+										</div>
+									</div>
+									<div class="col-sm-4 col-sm-8">
+										<div class="form-group">
+											<label>이메일<span>*</span></label>
+											<input type="email" name="email" id="email" size=20 placeholder="" required="required" value="${vo.email }">
+										</div>
+									</div>
+									<div class="col-sm-4 col-sm-8">
+										<div class="form-group">
+											<label>성별<span>*</span></label>
+											<input type="radio" value="남자" name=sex checked>남성
+		           							<input type="radio" value="여자" name=sex>여성
+										</div>
+									</div>
+									<div class="col-sm-4 col-sm-8">
+										<div class="form-group">
+											<label>전화번호<span>*</span></label>
+											<input type=text name=tel id="tel" size=20 placeholder="" required="required" value="${vo.tel }">
+										</div>
+									</div>
+									<div class="col-sm-4 col-sm-8">
+										<div class="form-group">
+											<div class="inline">
+										 	<label>우편번호<span>*</span></label>
+											<input type=text name=post1 id="post1" size=7 readonly>-<input type=text id=post2 name=post2 size=7 readonly>
+		          							<input type=button value="찾기" class="btn btn-sm btn-warning" id=postBtn>
+										</div>
+									   </div>
+									</div>
+									<div class="col-sm-4 col-sm-8">
+										<div class="form-group">
+											<label>주소<span>*</span></label>
+											<input type=text name=addr1 id="addr1" size=40 placeholder="" required="required" value="${vo.addr1 }">
+										</div>
+									</div>
+									<div class="col-sm-4 col-sm-8">
+										<div class="form-group">
+											<label>상세주소</label>
+											<input type=text name=addr2 id="addr2" size=40 placeholder="" value="${vo.addr2 }">
+										</div>
+									</div>
+									<div class="col-sm-4 col-sm-8">
+										<div class="form-group">
+											<legend></legend>
+											<label>비밀번호 확인<span>*</span></label>
+											<input type="password" name="pwd" id="pwd" size=20 placeholder="" required="required">
+										</div>
+									</div>
+									<div class="col-sm-4 col-sm-8">
+										<div class="form-group">
+											<div class="button wrap">
+												<button class=submit>수정</button>
+												<button onclick="javascript:history.back()">취소</button>
+											</div>
+										</div>
+									</div>
+								</div>
+							</form>
+							<!--/ End Form -->
+						</div>
+					</div>
+			<div class="col-lg-4 col-12">
+						<div class="main-sidebar">
+							<!-- Single Widget -->
+							<div class="single-widget category">
+								<h3 class="title">마이페이지</h3>
+								<ul class="categor-list">
+									<li><a href="../member/detail.do">회원정보 보기</a></li>
+									<li><a href="#">회원정보 수정</a></li>
+									<li><a href="#">회원탈퇴</a></li>
+								</ul>
+							</div>
+							<!--/ End Single Widget -->
+							<!-- Single Widget -->
+							<div class="single-widget category">
+								<h3 class="title">Blog Categories</h3>
+								<ul class="categor-list">
+									<li><a href="#">Men's Apparel</a></li>
+									<li><a href="#">Women's Apparel</a></li>
+									<li><a href="#">Bags Collection</a></li>
+									<li><a href="#">Accessories</a></li>
+									<li><a href="#">Sun Glasses</a></li>
+								</ul>
+							</div>
+							<!--/ End Single Widget -->
+							<!-- Single Widget -->
+							<div class="single-widget category">
+								<h3 class="title">Blog Categories</h3>
+								<ul class="categor-list">
+									<li><a href="#">Men's Apparel</a></li>
+									<li><a href="#">Women's Apparel</a></li>
+									<li><a href="#">Bags Collection</a></li>
+									<li><a href="#">Accessories</a></li>
+									<li><a href="#">Sun Glasses</a></li>
+								</ul>
+							</div>
+							<!--/ End Single Widget -->
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!--/ End Blog Single -->
+</body>
+</html>

@@ -14,6 +14,14 @@ function ok(zip,addr)
 	parent.joinFrm.addr1.value=addr;
 	parent.Shadowbox.close();
 }
+function ok(zip,addr)
+{
+	parent.updateFrm.post1.value=zip.substring(0,3);
+	parent.updateFrm.post2.value=zip.substring(4,7);//456
+	parent.updateFrm.addr1.value=addr;
+	parent.Shadowbox.close();
+}
+
 </script>
 </head>
 <body>

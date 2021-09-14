@@ -73,7 +73,7 @@
 							</c:if>
 							<c:if test="${sessionScope.id!=null }">
 							<ul class="list-main">
-								<li><i class="ti-user"></i><a href="../member/m_update.do">마이페이지</a></li>
+								<li><i class="ti-user"></i><a href="../member/detail.do">마이페이지</a></li>
 								<button onclick="location.href='../member/main.do'" id="logoutBtn">로그아웃</button>
 							</ul>
 							</c:if>

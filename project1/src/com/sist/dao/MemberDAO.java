@@ -219,6 +219,122 @@ public class MemberDAO {
 		  return result;
 	  }
 	// 기능 => 회원수정
-	// 기능 => 회원탈퇴
-	// 기능 => 아이디 찾기, 비밀번호 찾기
-}
+	// 1. 상세보기
+	 public MemberVO MemberDetailData(String id)
+	 {
+		 MemberVO vo=new MemberVO();
+		 try
+		 {
+			 getConnection();
+			 String sql="SELECT id, name, birthday, email, sex, tel, post, addr1, addr2 " //PWD 제외
+					+"FROM sign_up "
+					+"WHERE id=?";
+			 ps=conn.prepareStatement(sql);
+			 System.out.println(id);
+			 ps.setString(1, id);
+			 ResultSet rs=ps.executeQuery();
+			 rs.next();
+			 vo.setId(rs.getString(1));
+			 vo.setName(rs.getString(2));
+			 vo.setBirthday(rs.getString(3));
+			 vo.setEmail(rs.getString(4));
+			 vo.setSex(rs.getString(5));
+			 vo.setTel(rs.getString(6));
+			 vo.setPost(rs.getString(7));
+			 vo.setAddr1(rs.getString(8));
+			 vo.setAddr2(rs.getString(9));
+			 rs.close();
+		 }catch(Exception ex)
+		 {
+			 ex.printStackTrace();
+		 }
+		 finally
+		 {
+			 disConnection();
+		 }
+		 return vo;
+	 }
+	 // 2. 수정하기
+	 public MemberVO MemberUpdateData(String id)
+	 {
+		 MemberVO vo=new MemberVO();
+		 try
+		 {
+			 getConnection();
+			 String sql="SELECT id, name, birthday, email, sex, tel, post, addr1, addr2 " 
+						+"FROM sign_up "
+						+"WHERE id=?";
+			ps=conn.prepareStatement(sql);
+			ps.setString(1, id);
+			ResultSet rs=ps.executeQuery();
+			rs.next();
+			vo.setId(rs.getString(1));
+			vo.setName(rs.getString(2));
+			vo.setBirthday(rs.getString(3));
+			vo.setEmail(rs.getString(4));
+			vo.setSex(rs.getString(5));
+			vo.setTel(rs.getString(6));
+			vo.setPost(rs.getString(7));
+			vo.setAddr1(rs.getString(8));
+			vo.setAddr2(rs.getString(9));
+			rs.close();
+		 }catch(Exception ex)
+		 {
+			 ex.printStackTrace();
+		 }
+		 finally
+		 {
+			 disConnection();
+		 }
+		 return vo;
+	 }
+	 public boolean MemberUpdate(MemberVO vo)
+	 {
+		 boolean bCheck=false;
+		 try
+		 {
+			 getConnection();
+			 String sql="SELECT pwd FROM sign_up "
+					 +"WHERE id=?";
+			 ps=conn.prepareStatement(sql);
+			 ps.setString(1, vo.getId());
+			 ResultSet rs=ps.executeQuery();
+			 rs.next();
+			 String db_pwd=rs.getString(1);
+			 rs.close();
+			 
+			 if(db_pwd.equals(vo.getPwd()))
+			 {
+				 bCheck=true;
+				   sql="UPDATE sign_up SET "
+					  +"name=?, birthday=?, email=?, sex=?, tel=?, post=?, addr1=?,addr2=?"
+					  +"WHERE id=?";
+				   ps=conn.prepareStatement(sql);
+				   ps.setString(1, vo.getName());
+				   ps.setString(2, vo.getBirthday());
+				   ps.setString(3, vo.getEmail());
+				   ps.setString(4, vo.getSex());
+				   ps.setString(5, vo.getTel());
+				   ps.setString(6, vo.getPost());
+				   ps.setString(7, vo.getAddr1());
+				   ps.setString(8, vo.getAddr2());
+				   ps.setString(9, vo.getId());
+				   ps.executeUpdate();
+			 }
+			 else
+			 {
+				 bCheck=false;
+			 }
+		 	 }catch(Exception ex)
+			 {
+				 ex.printStackTrace();
+			 }
+			 finally
+			 {
+				 disConnection();
+			 }
+			 return bCheck;
+		 }
+	 }
+	 // 3. 회원탈퇴
+	

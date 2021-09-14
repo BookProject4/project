@@ -145,7 +145,7 @@ $(function(){
 							<h2>회원가입</h2>
 							<p>회원 전용 서비스를 편리하게 이용하세요.</p>
 							<!-- Form -->
-							<form method="post" action="../member/join_ok.do" id="joinFrm" name="joinFrm">
+							<form method="post" action="../member/join.do" id="joinFrm" name="joinFrm">
 								<div class="row">
 									<div class="col-sm-4 col-sm-8">
 										<div class="form-group">
