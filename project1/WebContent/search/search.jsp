@@ -39,9 +39,9 @@
 								<div class="col-xl-3 col-lg-4 col-md-4 col-12">
 									<div class="single-product">
 										<div class="product-img">
-											<a href="product-details.html"> <img class="default-img"
-												src="${vo.poster }" alt="#"> <img class="hover-img"
-												src="${vo.poster }" alt="#">
+											<a href="../book/book_detail.do?isbn=${vo.isbn }">
+												<img class="default-img" src="${vo.poster }" alt="#">
+												<img class="hover-img" src="${vo.poster }" alt="#">
 											</a>
 											<div class="button-head">
 												<div class="product-action">
@@ -59,7 +59,7 @@
 										</div>
 										<div class="product-content">
 											<h3>
-												<a href="product-details.html">${vo.title }</a>
+												<a href="../book/book_detail.do?isbn=${vo.isbn }">${vo.title }</a>
 											</h3>
 											<div class="product-price">
 												<span>${vo.price }</span>
