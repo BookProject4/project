@@ -6,7 +6,7 @@
 <head>
 <style type="text/css">
 		button {
-		  text-transform: uppercase;
+		  text-transform: uppercase; 
 		  outline: 0;
 		  background: #F7941D;
 		  width: 60px;
