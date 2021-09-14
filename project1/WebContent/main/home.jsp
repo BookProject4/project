@@ -5,30 +5,29 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style type="text/css">
+</style>
 </head>
 <body>
 	<!-- Slider Area -->
 	<section class="hero-slider">
 		<!-- Single Slider -->
-		<div class="single-slider">
-			<div class="container">
+		<a href="../search/search.do?&opt=tag&search=일상을위로하다&page=1">
+		<img src="../template/images/main_img.png">
+			<div class="container">			
 				<div class="row no-gutters">
 					<div class="col-lg-9 offset-lg-3 col-12">
 						<div class="text-inner">
 							<div class="row">
 								<div class="col-lg-7 col-12">
-									<div class="hero-text">
-										<h1><span> 1111111여기에 추천작들 이미지?? </span>추천작 제목???</h1>
-										<p>추천작 설명들????</p>
-										<div class="button">
-											<a href="#" class="btn">둘러보기</a>
-										</div>
+							
 									</div>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
+			 </a>
 			</div>
 		</div>
 	</section>
