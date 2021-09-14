@@ -58,7 +58,7 @@ public class CommunityModel {
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
-		String path="C:\\Users\\park\\git\\project\\project1\\WebContent\\img"; // 업로드된 파일 저장위치
+		String path="C:\\download"; // 업로드된 파일 저장위치
 		int size=1024*1024*100;// 업로드할 수 있는 파일 크기 (100메가)
 		String enctype="UTF-8";// 한글 파일명 
 		// 2008 => 버전상의 문제 
@@ -86,7 +86,7 @@ public class CommunityModel {
 		else
 		{
 			// 업로드가 된 상태
-			File file=new File(filename);
+			File file=new File("c:\\download\\"+filename);
 			vo.setFilename(filename);
 			vo.setFilesize((int)file.length()); // file크기 long
 		}
@@ -107,11 +107,9 @@ public class CommunityModel {
 		  CommunityDAO dao=CommunityDAO.newInstance();
 		  // 메소드 호출 
 		  CommunityVO vo=dao.communityDetailData(Integer.parseInt(no));
-		  int nono = vo.getNo();
 		  List<CommunityReplyVO> list=dao.replyListData(Integer.parseInt(no), 1);
 		  request.setAttribute("list", list);
 		  
-		  request.setAttribute("no", nono);
 		  request.setAttribute("vo", vo);
 		  request.setAttribute("main_jsp", "../community/detail.jsp");
 

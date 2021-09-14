@@ -5,14 +5,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%
-	String no = request.getParameter("no");
-	CommunityDAO dao = CommunityDAO.newInstance();
-	
-	CommunityVO vo = dao.communityDetailData(Integer.parseInt(no));
-	String filename= vo.getFilename();
-	String img = "../img"+filename;
-%>
 
 <!DOCTYPE html>
 <html>
@@ -43,7 +35,7 @@
       
       <tr>
         <th class="text-center" width=20%>그림</th>
-        <td colspan="3"><img src="<%=img %>" width="100px" height="100px"></td>
+        <td colspan="3"><img src="C:\download\76040928.png" width="100px" height="100px"></td>
       </tr>
       <tr>
         <td colspan="4" class="text-left" valign="top" height="200">
