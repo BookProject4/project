@@ -187,11 +187,7 @@
 										<div class="navbar-collapse">	
 											<div class="nav-inner">	
 												<ul class="nav main-menu menu navbar-nav">
-<<<<<<< HEAD
 													<li class="active"><a href="../main/main.do">Home</a></li>
-=======
-													<li><a href="../main/main.do">Home</a></li>
->>>>>>> branch 'master' of https://github.com/BookProject4/project.git
 													<li><a href="#">도서(부교재포함)<i class="ti-angle-down"></i></a>
 														<ul class="dropdown">
 															<li><a href="../book/book_list.do?cate1=가정">가정</a></li>
