@@ -110,21 +110,19 @@
 						<div class="mobile-nav"></div>
 					</div>
 					<div class="col-lg-8 col-md-7 col-12">
-						<div class="search-bar-top">
-							<div class="search-bar">
-								<select>
-									<option selected="selected">All</option>
-									<option>도서</option>
-									<option>문의</option>
-									<option>창작마당</option>
-									<option>...</option>
-								</select>
-								<form>
-									<input name="search" placeholder="검색어를 입력하세요!" type="search">
-									<button class="btnn"><i class="ti-search"></i></button>
-								</form>
-							</div>
+					<form method="post" action="../search/search.do" id="searchFrm" name="searchFrm">
+						<div class="search-bar-top">						
+							<div class="search-bar">																								
+									<select name="opt">
+										<option value="title" selected="selected">제목</option>
+										<option value="writer">저자</option>
+										<option value="tag">태그</option>
+									</select>													
+										<input name="search" id="search" placeholder="검색어를 입력하세요!">
+										<button class="btnn" id="sendBtn"><i class="ti-search"></i></button>														
+							</div>							
 						</div>
+						</form>
 					</div>
 					<div class="col-lg-2 col-md-3 col-12">
 						<div class="right-bar">
@@ -189,16 +187,16 @@
 										<div class="navbar-collapse">	
 											<div class="nav-inner">	
 												<ul class="nav main-menu menu navbar-nav">
-													<li class="active"><a href="#">Home</a></li>
+													<li><a href="../main/main.do">Home</a></li>
 													<li><a href="#">도서(부교재포함)<i class="ti-angle-down"></i></a>
 														<ul class="dropdown">
-															<li><a href="../book/book_main.do?cate1=가정">가정</a></li>
-															<li><a href="../book/book_main.do?cate1=여가">여가</a></li>
-															<li><a href="../book/book_main.do?cate1=학문">학문</a></li>
-															<li><a href="../book/book_main.do?cate1=교육">교육</a></li>
-															<li><a href="../book/book_main.do?cate1=문학">문학</a></li>
-															<li><a href="../book/book_main.do?cate1=해외">해외</a></li>
-															<li><a href="../book/book_main.do?cate1=기타">기타</a></li>
+															<li><a href="../book/book_list.do?cate1=가정">가정</a></li>
+															<li><a href="../book/book_list.do?cate1=여가">여가</a></li>
+															<li><a href="../book/book_list.do?cate1=학문">학문</a></li>
+															<li><a href="../book/book_list.do?cate1=교육">교육</a></li>
+															<li><a href="../book/book_list.do?cate1=문학">문학</a></li>
+															<li><a href="../book/book_list.do?cate1=해외">해외</a></li>
+															<li><a href="../book/book_list.do?cate1=기타">기타</a></li>
 														</ul>
 													</li>										
 													<li><a href="#">추천<i class="ti-angle-down"></i><span class="new">New</span></a>
@@ -224,6 +222,7 @@
 				</div>
 			</div>
 			<!--/ End Header Inner -->
+		
 		
 		
 		
