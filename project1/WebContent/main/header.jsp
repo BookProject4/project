@@ -30,6 +30,16 @@
 		$('#logoutBtn').click(function(){
 			location.href="../member/logout.do";
 		})
+//검색 데이터 전송		
+		$('#sendBtn').click(function(){
+			let search=$('#search').val();
+			if(search.trim()=="")
+			{
+				$('#search').focus();
+				return;
+			}			
+			$('#searchFrm').submit();			
+		})
 	})
 </script>
 </head>
@@ -112,13 +122,13 @@
 					<form method="post" action="../search/search.do" id="searchFrm" name="searchFrm">
 						<div class="search-bar-top">						
 							<div class="search-bar">																								
-									<select name="opt">
+									<select name="opt" id="opt">
 										<option value="title" selected="selected">제목</option>
 										<option value="writer">저자</option>
 										<option value="tag">태그</option>
 									</select>													
-										<input name="search" id="search" placeholder="검색어를 입력하세요!">
-										<button class="btnn" id="sendBtn"><i class="ti-search"></i></button>														
+										<input name="search" id="search" name="search" placeholder="검색어를 입력하세요!">
+										<button class="btnn" id="sendBtn" name="sendBtn"><i class="ti-search"></i></button>														
 							</div>							
 						</div>
 						</form>
