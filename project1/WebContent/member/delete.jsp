@@ -69,7 +69,7 @@
 							<ul class="bread-list">
 								<li><a href="../main/main.do">Home<i class="ti-arrow-right"></i></a></li>
 								<li class="active">마이페이지<i class="ti-arrow-right"></i></li>
-								<li class="active"><a href="../member/detail.do">회원정보 보기</a></li>
+								<li class="active"><a href="../member/delete.do">회원탈퇴</a></li>
 							</ul>
 						</div>
 					</div>
@@ -142,7 +142,7 @@
 							<div class="single-widget category">
 								<h3 class="title">마이페이지</h3>
 								<ul class="categor-list">
-									<li><a href="../member/detail.do">회원정보 보기</a></li>
+									<li><a href="../member/detail.do">내 정보</a></li>
 									<li><a href="../member/update.do">회원정보 수정</a></li>
 									<li><a href="../member/delete.do">회원탈퇴</a></li>
 								</ul>
