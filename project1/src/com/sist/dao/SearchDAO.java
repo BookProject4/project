@@ -11,6 +11,7 @@ import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
 import com.sist.vo.BookVO;
+import com.sist.vo.CommunityVO;
 
 public class SearchDAO {
 		private Connection conn;
@@ -267,5 +268,58 @@ public class SearchDAO {
 			}
 			return vo;
 		}
+		public List<CommunityVO> mainCommunityList()
+		{
+			List<CommunityVO> list = new ArrayList<CommunityVO>();
+			try {
+				getConnection();
+				String sql="SELECT no,subject,regdate,hit,filename, num FROM (SELECT no,subject,name,regdate,hit,filename,rownum as num FROM (SELECT no,subject,name,regdate,filename,hit FROM community ORDER BY no DESC)) WHERE num BETWEEN 1 AND 3 ORDER BY hit desc";
+				ps=conn.prepareStatement(sql);				
+				ResultSet rs= ps.executeQuery();
+				
+				while(rs.next())
+				{
+					CommunityVO vo = new CommunityVO();
+					vo.setNo(rs.getInt(1));
+					vo.setSubject(rs.getString(2));
+					vo.setRegdate(rs.getDate(3));
+					vo.setHit(rs.getInt(4));
+					vo.setFilename(rs.getString(5));
+					list.add(vo);
+				}
+				rs.close();
+			} catch (Exception e) {
+				// TODO: handle exception
+				e.printStackTrace();
+			} finally {
+				disConnection();
+			}
+			
+			return list;
+		}
+		public CommunityVO mainCommunityDetail()
+		{
+			CommunityVO vo=new CommunityVO();
+			try {
+				getConnection();
+				String sql="SELECT no,subject,regdate,filename FROM (SELECT no,subject,regdate,filename FROM community ORDER BY hit DESC) WHERE rownum <=3";
+				ps=conn.prepareStatement(sql);				
+				ResultSet rs= ps.executeQuery();
+				rs.next();
+				vo.setNo(rs.getInt(1));
+				vo.setSubject(rs.getString(2));
+				vo.setRegdate(rs.getDate(3));
+				vo.setFilename(rs.getString(4));
+				rs.close();
+			} catch (Exception e) {
+				// TODO: handle exception
+				e.printStackTrace();
+			} finally {
+				disConnection();
+			}
+			
+			return vo;
+		}
+
 	}
 

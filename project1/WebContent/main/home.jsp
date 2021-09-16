@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -367,44 +368,22 @@
 			<div class="row">
 				<div class="col-12">
 					<div class="section-title">
-						<h2>창작마당(새로 올라온 것 3개 노출-나중에 c:forEach로 최근데이터 3개만 긁어오기)</h2>
+						<h2>Best 창작마당</h2>
 					</div>
 				</div>
 			</div>
 			<div class="row">
+				<c:forEach var="vo" items="${list }">
 				<div class="col-lg-4 col-md-6 col-12">
-					<!-- Start Single Blog  -->
-					<div class="shop-single-blog">
-						<a href="창작마당게시글#"><img src="https://via.placeholder.com/370x300" alt="#"></a>
+					<div class="shop-single-blog">					 
+						<a href="../community/detail.do?no=${vo.no }"><img src="../img/${vo.filename }" alt="#"></a>
 						<div class="content">
-							<p class="date">날짜(창작마당 등록일 - 창작vo.date)</p>
-							<a href="창작마당게시글#" class="title">게시글 제목</a>
-						</div>
-					</div>
-					<!-- End Single Blog  -->
+							<p class="date">${vo.regdate }</p>
+							<a href="../community/detail.do?no=${vo.no }" class="title">${vo.subject }</a>
+						</div>					
+					</div>					
 				</div>
-				<div class="col-lg-4 col-md-6 col-12">
-					<!-- Start Single Blog  -->
-					<div class="shop-single-blog">
-						<a href="창작마당게시글#"><img src="https://via.placeholder.com/370x300" alt="#"></a>
-						<div class="content">
-							<p class="date">날짜(창작마당 등록일 - 창작vo.date)</p>
-							<a href="창작마당게시글#" class="title">게시글 제목</a>
-						</div>
-					</div>
-					<!-- End Single Blog  -->
-				</div>
-				<div class="col-lg-4 col-md-6 col-12">
-					<!-- Start Single Blog  -->
-					<div class="shop-single-blog">
-						<a href="창작마당게시글#"><img src="https://via.placeholder.com/370x300" alt="#"></a>
-						<div class="content">
-							<p class="date">날짜(창작마당 등록일 - 창작vo.date)</p>
-							<a href="창작마당게시글#" class="title">게시글 제목</a>
-						</div>
-					</div>
-					<!-- End Single Blog  -->
-				</div>
+				</c:forEach>
 			</div>
 		</div>
 	</section>
