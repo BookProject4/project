@@ -124,6 +124,18 @@ public class MemberModel {
 		  session.invalidate();
 		  return "redirect:../main/main.do";
 	  }
+	// 2-3. 아이디 찾기
+	@RequestMapping("member/idfind_do")
+	public String member_idfind(HttpServletRequest request, HttpServletResponse response)
+	{
+		String name=request.getParameter("name");
+		String email=request.getParameter("email");
+		MemberDAO dao=MemberDAO.newInstance();
+		String id=dao.idFind(name, email);
+		request.setAttribute("id", id);
+		return "../member/idfind.jsp";
+	}
+	// 2-4. 비밀번호 찾기
 	
 	// 3. 마이페이지 상세보기 연결 및 데이터 출력
 	@RequestMapping("member/detail.do")
@@ -137,7 +149,7 @@ public class MemberModel {
 		request.setAttribute("main_jsp", "../member/detail.jsp");
 		return "../main/main.jsp";
 	}
-	// 3-1. 회원정보 수정 데이터 출력
+	// 4. 회원정보 수정 데이터 출력
 	@RequestMapping("member/update.do")
 	public String member_update(HttpServletRequest request,HttpServletResponse response)
 	{
@@ -149,7 +161,7 @@ public class MemberModel {
 		request.setAttribute("main_jsp", "../member/update.jsp");
 		return "../main/main.jsp"; 
 	}
-	// 3-2. 회원정보 수정
+	// 4-1. 회원정보 수정
 	@RequestMapping("member/update_ok.do")
 	public String member_update_ok(HttpServletRequest request, HttpServletResponse response)
 	{
@@ -189,7 +201,7 @@ public class MemberModel {
 		request.setAttribute("id",id);
 		return "../member/update_ok.jsp";
 	}
-	// 3-3. 회원정보 수정 우편번호 찾기
+	// 4-2. 회원정보 수정 우편번호 찾기
 	@RequestMapping("member/postfind_update.do")
 	public String member_postfind_update(HttpServletRequest request, HttpServletResponse response)
 	{
@@ -206,7 +218,7 @@ public class MemberModel {
 		request.setAttribute("count", count);
 		return "../member/postfind_result_update.jsp";
 	}
-	// 4. 회원탈퇴 화면
+	// 5. 회원탈퇴 페이지 연결
 	@RequestMapping("member/delete.do")
 	public String member_delete(HttpServletRequest request,HttpServletResponse response)
 	{
@@ -215,7 +227,7 @@ public class MemberModel {
 		request.setAttribute("main_jsp", "../member/delete.jsp");
 		return "../main/main.jsp";
 	}
-	// 4-1. 회원탈퇴 기능
+	// 5-1. 회원탈퇴 기능
 	@RequestMapping("member/delete_ok.do")
 	public String member_delete_ok(HttpServletRequest request, HttpServletResponse response)
 	{

@@ -387,7 +387,30 @@ public class MemberDAO {
 		}
 		return bCheck;
 	}
-	
+	// 아이디 찾기
+	public String idFind(String name, String email)
+	{
+		String id=null;
+		try
+		{
+			String sql="SELECT id FROM sign_up "
+					+"WHERE name=? AND email=?";
+			ps=conn.prepareStatement(sql);
+			ps.setString(1, name);
+			ps.setString(2, email);
+			ResultSet rs=ps.executeQuery();
+			if(rs.next())
+			id=rs.getString("id");
+		}catch(Exception ex)
+		{
+			ex.printStackTrace();
+		}
+		finally
+		{
+			disConnection();
+		}
+		return id;
+	}
 	
 	
 }

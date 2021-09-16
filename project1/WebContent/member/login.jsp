@@ -75,9 +75,33 @@
 			padding: 30px;
 		}
   </style>
+<link rel="stylesheet" href="../shadow/css/shadowbox.css">
+<script type="text/javascript" src="../shadow/js/shadowbox.js"></script>
 <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
 <script type="text/javascript">
+Shadowbox.init({
+	players:['iframe']
+})
 $(function(){
+	// 아이디 찾기
+	$('#idfindLink').click(function(){
+		Shadowbox.open({
+			content:'../member/idfind.jsp',
+			player:'iframe',
+			width:450,
+			height:300
+		})
+	})
+	// 비밀번호 찾기
+	$('#pwdfindLink').click(function(){
+		Shadowbox.open({
+			content:'../member/pwdfind.jsp',
+			player:'iframe',
+			width:450,
+			height:300
+		})
+	})
+	// 로그인
 	$('#logBtn').click(function(){
 		let id=$('#log_id').val();
 		if(id.trim()=="")
@@ -141,16 +165,16 @@ $(function(){
 		<section class="blog-single section">
 			<div class="login-page">
 			  <div class="form">
-			    <form class="login-form">
+			    <form method="post" class="login-form" id="logFrm">
 			      <img src="../template/images/logo.png">
-			      <input type="text" placeholder="아이디" id="log_id" name="log_id"/>
-			      <input type="password" placeholder="비밀번호" id="log_pwd" name="log_pwd"/>
+			      <input type="text" placeholder="아이디" id="log_id" name="log_id">
+			      <input type="password" placeholder="비밀번호" id="log_pwd" name="log_pwd">
 			      <div class="button-wrap">
-			      <button id="logBtn" class="button">로그인</button>
+			      <input type="button" id="logBtn" name="logBtn" value="로그인">
 				  </div>
 			      <p class="message">
-			      	<a href="#">아이디</a>
-			      	/ <a href="#">비밀번호 찾기</a><br>
+			      	<a href="#" id="idfindLink">아이디</a>
+			      	/ <a href="#" id="pwdfindLink">비밀번호 찾기</a><br>
 			      	아직 계정이 없으신가요? <a href="../member/join.do">회원가입</a>
 			      </p>
 			    </form>
