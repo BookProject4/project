@@ -32,29 +32,23 @@
 		  box-sizing: border-box;
 		  font-size: 14px;
 		}
-		.button-wrap button{
-		  text-transform: uppercase;
-		  outline: 0;
-		  background: #343a40;
-		  width: 100%;
-		  border: 0;
-		  padding: 13px;
-		  color: #FFFFFF;
-		  font-size: 16px;
-		  -webkit-transition: all 0.3 ease;
-		  transition: all 0.3 ease;
-		  cursor: pointer;
-		}
-		.button-wrap button:hover,.button-wrap button:active,.button-wrap button:focus {
-		  background: #F7941D;
-		  color: #FFFFFF;
-		}
+		#logBtn {
+		      width:100%;
+		      border:0;
+		      background:#343a40;
+		      color:white;
+		      text-align:center;
+		      font-size: 16px;
+	     }
+	    #logBtn:hover {
+		      background:#F7941D;
+		      text-align:center;
+	     }
 		.login-page form .message {
 		  margin: 15px 0 0;
 		  color: #b3b3b3;
 		  font-size: 12px;
 		}
-		
 		.login-page form .message a {
 		  color: #F7941D;
 		  text-decoration: none;

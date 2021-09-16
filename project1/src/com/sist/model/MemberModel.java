@@ -136,6 +136,17 @@ public class MemberModel {
 		return "../member/idfind.jsp";
 	}
 	// 2-4. 비밀번호 찾기
+	@RequestMapping("member/pwdfind_do")
+	public String member_pwdfind(HttpServletRequest request, HttpServletResponse response)
+	{
+		String id=request.getParameter("id");
+		String name=request.getParameter("name");
+		String email=request.getParameter("email");
+		MemberDAO dao=MemberDAO.newInstance();
+		String pwd=dao.pwdFind(id ,name, email);
+		request.setAttribute("pwd", pwd);
+		return "../member/pwdfind.jsp";
+	}
 	
 	// 3. 마이페이지 상세보기 연결 및 데이터 출력
 	@RequestMapping("member/detail.do")

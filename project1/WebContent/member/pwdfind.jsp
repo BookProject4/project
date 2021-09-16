@@ -73,7 +73,7 @@ $(function(){
 				let pwd=res.trim();
 				if(pwd==null)
 				{
-					$('result').html('입력된 정보로 등록된 아이디가 없습니다');
+					$('result').html('입력된 정보로 등록된 비밀번호가 없습니다');
 				}
 				else 
 				{

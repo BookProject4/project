@@ -54,13 +54,13 @@
 							<c:if test="${sessionScope.id==null }">
 							<ul class="list-main">
 								<li><i class="ti-pencil"></i><a href="../member/join.do">회원가입</a></li>
-								<li><i class="ti-key"></i><a href="../member/login.do">로그인</a></li>
+								<li><i class="ti-unlock"></i><a href="../member/login.do">로그인</a></li>
 							</ul>
 							</c:if>
 							<c:if test="${sessionScope.id!=null }">
 							<ul class="list-main">
 								<li><i class="ti-user"></i><a href="../member/detail.do">마이페이지</a></li>
-								<li><i class="ti-power-off"></i><a href="../member/logout.do">로그아웃</a></li>
+								<li><i class="ti-lock"></i><a href="../member/logout.do">로그아웃</a></li>
 							</ul>
 							</c:if>
 						</div>
