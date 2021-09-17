@@ -4,19 +4,39 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
+<style type="text/css">
+		button {
+		  text-transform: uppercase; 
+		  outline: 0;
+		  background: #F7941D;
+		  width: 60px;
+		  border: 0;
+		  padding: 3px;
+		  color: #FFFFFF;
+		  font-size: 12px;
+		  -webkit-transition: all 0.3 ease;
+		  transition: all 0.3 ease;
+		  cursor: pointer;
+		  font-family: 'Poppins', sans-serif;
+		}
+		button:hover,.form button:active,.form button:focus {
+		  background: #343a40;
+		}
+</style>
 <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
 <script type="text/javascript">
+$(function(){
 //검색 데이터 전송		
-		$('#sendBtn').click(function(){
-			let search=$('#search').val();
-			if(search.trim()=="")
-			{
-				$('#search').focus();
-				return;
-			}			
-			$('#searchFrm').submit();			
-		})
+	$('#sendBtn').click(function(){
+		let search=$('#search').val();
+		if(search.trim()=="")
+		{
+			$('#search').focus();
+			return;
+		}			
+		$('#searchFrm').submit();			
 	})
+})
 </script>
 </head>
 <body class="js">
@@ -54,13 +74,13 @@
 							<c:if test="${sessionScope.id==null }">
 							<ul class="list-main">
 								<li><i class="ti-pencil"></i><a href="../member/join.do">회원가입</a></li>
-								<li><i class="ti-unlock"></i><a href="../member/login.do">로그인</a></li>
+								<li><i class="ti-key"></i><a href="../member/login.do">로그인</a></li>
 							</ul>
 							</c:if>
 							<c:if test="${sessionScope.id!=null }">
 							<ul class="list-main">
 								<li><i class="ti-user"></i><a href="../member/detail.do">마이페이지</a></li>
-								<li><i class="ti-lock"></i><a href="../member/logout.do">로그아웃</a></li>
+								<li><i class="ti-power-off"></i><a href="../member/logout.do">로그아웃</a></li>								
 							</ul>
 							</c:if>
 						</div>

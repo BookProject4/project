@@ -6,9 +6,11 @@ import java.util.List;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
+import javax.servlet.http.HttpSession;
 import javax.sql.DataSource;
 
 import com.sist.vo.BookVO;
+import com.sist.vo.ReplyVO;
 
 public class BookDAO {
 	private Connection conn;
@@ -151,9 +153,9 @@ public class BookDAO {
 			vo.setEtcInfo(rs.getString(9));
 			vo.setPrice(rs.getString(10));
 			vo.setDiscount(rs.getString(11));
-			vo.setText(rs.getString(12).trim());
-			vo.setImgs(rs.getString(13).trim());
-			vo.setContentsTable(rs.getString(14).trim());
+			vo.setText(rs.getString(12));
+			vo.setImgs(rs.getString(13));
+			vo.setContentsTable(rs.getString(14));
 			vo.setTags(rs.getString(15));
 			vo.setPublicationDay(rs.getString(16));
 			vo.setScore(rs.getDouble(17));
@@ -165,5 +167,106 @@ public class BookDAO {
 			disConnection();
 		}
 		return vo;
+	}
+	
+	///////////////// 댓글
+	
+	// 댓글 전체 읽기
+	public List<ReplyVO> replySelect(long isbn){
+		List<ReplyVO> list=new ArrayList<ReplyVO>();
+		try {
+			getConnection();
+			String sql="SELECT no,id,name,msg,TO_CHAR(regdate) FROM replyBoard WHERE isbn=? ORDER BY no DESC";
+			ps=conn.prepareStatement(sql);
+			ps.setLong(1, isbn);
+			ResultSet rs = ps.executeQuery();
+		
+			while(rs.next()) {
+				ReplyVO vo=new ReplyVO();
+				vo.setIsbn(isbn);
+				vo.setNo(rs.getInt(1));
+				vo.setId(rs.getString(2));
+				vo.setName(rs.getString(3));
+				vo.setMsg(rs.getString(4));
+				vo.setDbday(rs.getString(5));
+				list.add(vo);
+			}
+			rs.close();
+		} catch (Exception e) {}
+		finally {
+			disConnection();
+		}
+		return list;
+		}
+	   
+	// 댓글 쓰기
+	public void replyInsert(ReplyVO vo) {
+		try{
+			getConnection();
+			String sql="INSERT INTO replyBoard VALUES(?,pr_no_seq.nextval,?,?,?,SYSDATE)";
+			ps=conn.prepareStatement(sql);
+			ps.setLong(1, vo.getIsbn());
+			ps.setString(2, vo.getId());
+			ps.setString(3, vo.getName());
+			ps.setString(4, vo.getMsg());
+			ps.executeUpdate();   
+		}catch(Exception ex){
+			ex.printStackTrace();
+		}
+		finally{
+			disConnection();
+		}
+	}
+	   
+	//댓글 수정 전 데이터 가져오기
+	public ReplyVO preReplyUpdate(int no) {
+		ReplyVO vo=new ReplyVO();
+		try {
+			getConnection();
+			String sql="SELECT msg from replyBoard Where no=?";
+			ps=conn.prepareStatement(sql);
+			ps.setInt(1, no);
+			ResultSet rs=ps.executeQuery();
+			rs.next();
+			vo.setNo(no);
+			vo.setMsg(rs.getString(1));
+			rs.close();
+		} catch (Exception e) {
+		}
+		return vo;
+	}
+	
+	// 댓글 수정 
+	public void replyUpdate(int no,String msg){
+		try{
+			getConnection();
+			String sql="UPDATE replyBoard SET msg=? WHERE no=?";
+			ps=conn.prepareStatement(sql);
+			ps.setString(1, msg);
+			ps.setInt(2, no);
+			ps.executeUpdate();
+		}catch(Exception ex){
+			ex.printStackTrace();
+		}
+		finally{
+			disConnection();
+		}
+	}
+	
+	// 댓글 삭제
+	public void replyDelete(int no){
+		try{
+			getConnection();
+			String sql="DELETE FROM replyBoard WHERE no=?";
+			ps=conn.prepareStatement(sql);
+			ps.setInt(1, no);
+			ps.executeUpdate();
+			System.out.println(no);
+		}catch(Exception ex){
+			ex.printStackTrace();
+		}
+		finally{
+			disConnection();
+		}
 	}
 }

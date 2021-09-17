@@ -43,8 +43,7 @@
 													<a href="../book/book_list.do?cate1=${cate1 }&cate2=${cate2 }">${cate2 }</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 													</li>
 													</c:forEach>
-													
-																			
+																						
 																
 												</ul>
 											</div>

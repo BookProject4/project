@@ -46,7 +46,6 @@
 </head>
 
 <body>
-<%=application.getRealPath("/") %>
 	<jsp:include page="header.jsp"/>
 	<jsp:include page="${main_jsp }"/>
 	<jsp:include page="footer.jsp"/>

@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,24 +12,10 @@
 <body>
 	<!-- Slider Area -->
 	<section class="hero-slider">
-		<!-- Single Slider -->
-		<a href="../search/search.do?&opt=tag&search=일상을위로하다&page=1">
-		<img src="../template/images/main_img.png">
-			<div class="container">			
-				<div class="row no-gutters">
-					<div class="col-lg-9 offset-lg-3 col-12">
-						<div class="text-inner">
-							<div class="row">
-								<div class="col-lg-7 col-12">
-							
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			 </a>
-			</div>
+		<div class=container>
+			<a href="../search/search.do?&opt=tag&search=일상을위로하다&page=1"> <img
+				src="../template/images/main_img.png">
+			</a>
 		</div>
 	</section>
 	<!--/ End Slider Area -->
