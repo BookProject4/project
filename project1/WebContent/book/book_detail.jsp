@@ -21,28 +21,6 @@
 			$('#replyForm').submit();
 		})
 
-		//수정버튼 변경
-		let u = 0;
-		$('.ubtn').click(function() {
-			let no = $(this).attr("data-no");
-			$('.updateForm').hide();
-			if (u == 0) {
-				$(this).text("취소");
-				$('#u' + no).show();
-				u = 1;
-				
-			} else {
-				$(this).text("수정");
-				$('#u' + no).hide();
-				u = 0;
-			}
-		})
-		
-		//수정
-		$('#uBtn').click(function() {
-			location.href = "book/reply_update.do?isbn=" + $('#uBtn').attr("data-no");
-		})
-
 	})
 </script>
 </head>
@@ -139,7 +117,7 @@
 							</div>
 							
 
-							<!-- 댓글 출력 시작 따로 reply 만들어서  -->
+							<!-- 댓글 출력 -->
 							<div class="col-12">
 								<div class="comments">
 									<h3 class="comment-title">Comments (${rListCnt })</h3>
@@ -151,15 +129,18 @@
 												<h4>${rvo.name }
 													<span>${rvo.dbday }</span>
 												</h4>
-												<p>${rvo.msg }</p>
+												<pre>${rvo.msg }</pre>
 												<c:if test="${rvo.id eq sessionScope.id }">
 												<form method=post action="../book/reply_delete.do">
-													<input type=hidden name=isbn id=isbn value="${rvo.isbn }">
+													<input type=hidden name=isbn value="${rvo.isbn }">
 													<input type=hidden name=no value="${rvo.no }">
-													<input type="submit" class="btn" value="삭제" style="float: right">
+													<input type="submit" id="dBtn" class="btn" value="삭제" style="float: right">
 												</form>
-												<form id="u${rvo.no }" style="display:none" class=updateForm method=post action="../book/book_detail.do?isbn=${isbn }">
-												<input type="button" id="uBtn" class="btn" value="수정" style="float: right">
+												<form method=post action="../book/reply_preUpdate.do">
+													<input type=hidden name=isbn value="${rvo.isbn }">
+													<input type=hidden name=no value="${rvo.no }">
+													<input type=hidden name=msg value="${rvo.msg }">
+												<input type="submit" id="uBtn" class="btn" value="수정" style="float: right">		
 												</form>
 												</c:if>
 											</div>
@@ -190,9 +171,13 @@
 													<div class="col-12">
 														<div class="form-group">
 															<label>내용<span>*</span></label>
+															
 															<textarea name="msg" placeholder="" id="msg"></textarea>
+															
 														</div>
 														<input type="button" id="iBtn" class="btn" value="등록" style="float: right">
+														<input type="button" id="iBtn" class="btn" value="수정" style="float: right;display:none">
+														<input type="button" class="btn" value="취소" style="float: right;display:none" onclick="javascript:history.back()">
 													</div>
 												</div>
 											</form>
@@ -227,7 +212,7 @@
 
 						<!-- Single Widget -->
 						<div class="single-widget recent-post">
-							<h3 class="title">창작마당 최근 게시글들 몇개 긁어오기</h3>
+							<h3 class="title">창작마당</h3>
 							<!-- Single Post -->
 							<div class="single-post">
 								<div class="image">

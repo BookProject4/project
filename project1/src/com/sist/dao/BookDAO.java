@@ -6,7 +6,6 @@ import java.util.List;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
-import javax.servlet.http.HttpSession;
 import javax.sql.DataSource;
 
 import com.sist.vo.BookVO;
@@ -109,6 +108,7 @@ public class BookDAO {
 		}
 		return list;
 	}
+	
 	//총 페이지 구하기
 	public int totalPage(String cate1,String cate2) {
 		int t=0;

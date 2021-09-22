@@ -17,9 +17,9 @@
 						<!-- Single Widget -->
 						<div class="single-footer about">
 							<div class="logo">
-								<a href="index.html"><img src="images/logo2.png" alt="#"></a>
+								<a href="../main/main.do"><img src="../template/images/logo.png" alt="logo"></a>
 							</div>
-							<p class="text"><h1>나중에 시간나면 footer 꾸미기, 시간 없으면 그냥 나두고 위에 로고만 바꾸든지 없애기</h1></p>
+							<p class="text"><h1>서적 정보 공유, 구매, 추천, 관련 커뮤니티 등</h1></p>
 							<p class="call">Got Question? Call us 24/7<span><a href="tel:123456789">+0123 456 789</a></span></p>
 						</div>
 						<!-- End Single Widget -->

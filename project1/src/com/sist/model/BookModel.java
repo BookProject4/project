@@ -39,7 +39,7 @@ public class BookModel {
 	
 	//상세보기 및 댓글 전체 보기
 	@RequestMapping("book/book_detail.do")
-	public String book_detail(HttpServletRequest request,HttpServletResponse response){
+	public String x(HttpServletRequest request,HttpServletResponse response){
 		String isbn=request.getParameter("isbn");
 		BookDAO dao=BookDAO.newInstance();
 		BookVO vo=dao.bookDetailData(Long.parseLong(isbn));
@@ -84,13 +84,21 @@ public class BookModel {
 		vo.setName(name);
 		vo.setMsg(msg);
 		BookDAO dao=BookDAO.newInstance();
-		dao.replyInsert(vo);
-		
-		//궁금한게 있는데요 1.do -> 2.do -> 1.do 요로케 가는 흐름인데 2.do에서 "redirect:1.do"하면 실행되고, 그냥 return "1.do"하면 먹통인데 이유를 알수 있을까요??
-		//return "../book/book_detail.do?isbn="+isbn;
-		
+		dao.replyInsert(vo);		
 		return "redirect:../book/book_detail.do?isbn="+isbn;
 		
+	}
+	
+	// 댓글 수정 전
+	@RequestMapping("book/reply_preUpdate.do")
+	public String reply_preUpdate(HttpServletRequest request,HttpServletResponse response){
+		String isbn=request.getParameter("isbn");
+		String no=request.getParameter("no");
+		String msg=request.getParameter("msg");
+		request.setAttribute("isbn", isbn);
+		request.setAttribute("no", no);
+		request.setAttribute("msg", msg);
+		return "../book/reply_update.jsp";
 	}
 	
 	// 댓글 수정
@@ -99,7 +107,6 @@ public class BookModel {
 		try{
 			request.setCharacterEncoding("UTF-8");//디코딩
 		}catch(Exception ex) {}
-		
 		String isbn=request.getParameter("isbn");
 		String no=request.getParameter("no");
 		String msg=request.getParameter("msg");
