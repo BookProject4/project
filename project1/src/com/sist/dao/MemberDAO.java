@@ -393,6 +393,7 @@ public class MemberDAO {
 		String id=null;
 		try
 		{
+			getConnection();
 			String sql="SELECT id FROM sign_up "
 					+"WHERE name=? AND email=?";
 			ps=conn.prepareStatement(sql);
@@ -412,16 +413,17 @@ public class MemberDAO {
 		return id;
 	}
 	// 비밀번호 찾기
-		public String pwdFind(String id, String name, String email)
+		public String pwdFind(String name, String id, String email)
 		{
 			String pwd=null;
 			try
 			{
+				getConnection();
 				String sql="SELECT pwd FROM sign_up "
-						+"WHERE id=?, name=?, email=?";
+						+"WHERE name=? AND id=? AND email=?";
 				ps=conn.prepareStatement(sql);
-				ps.setString(1, id);
-				ps.setString(2, name);
+				ps.setString(1, name);
+				ps.setString(2, id);
 				ps.setString(3, email);
 				ResultSet rs=ps.executeQuery();
 				if(rs.next())
@@ -436,6 +438,5 @@ public class MemberDAO {
 			}
 			return pwd;
 		}
-	
 }
 	

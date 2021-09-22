@@ -125,29 +125,44 @@ public class MemberModel {
 		  return "redirect:../main/main.do";
 	  }
 	// 2-3. 아이디 찾기
-	@RequestMapping("member/idfind_do")
+	@RequestMapping("member/idfind.do")
 	public String member_idfind(HttpServletRequest request, HttpServletResponse response)
 	{
 		String name=request.getParameter("name");
 		String email=request.getParameter("email");
 		MemberDAO dao=MemberDAO.newInstance();
 		String id=dao.idFind(name, email);
-		request.setAttribute("id", id);
-		return "../member/idfind.jsp";
+		if(id==null)
+		{
+			request.setAttribute("id", "$noneid");	
+		}else
+		{
+			request.setAttribute("id", id);	
+		}
+		return "../member/idfind_result.jsp";
 	}
 	// 2-4. 비밀번호 찾기
-	@RequestMapping("member/pwdfind_do")
+	@RequestMapping("member/pwdfind.do")
 	public String member_pwdfind(HttpServletRequest request, HttpServletResponse response)
 	{
-		String id=request.getParameter("id");
 		String name=request.getParameter("name");
+		String id=request.getParameter("id");
 		String email=request.getParameter("email");
+		
+		System.out.println("name: "+name);
+		System.out.println("id: "+id);
+		System.out.println("email: "+email);
 		MemberDAO dao=MemberDAO.newInstance();
-		String pwd=dao.pwdFind(id ,name, email);
-		request.setAttribute("pwd", pwd);
-		return "../member/pwdfind.jsp";
+		String pwd=dao.pwdFind(name , id, email);
+		if(pwd==null)
+		{
+			request.setAttribute("pwd", "$nonepwd");	
+		}else
+		{
+			request.setAttribute("pwd", pwd);	
+		}
+		return "../member/pwdfind_result.jsp";
 	}
-	
 	// 3. 마이페이지 상세보기 연결 및 데이터 출력
 	@RequestMapping("member/detail.do")
 	public String member_m_update1(HttpServletRequest request, HttpServletResponse response)
@@ -253,6 +268,5 @@ public class MemberModel {
 		session.invalidate();
 		return "../member/delete_ok.jsp";
 	}
-	
-	
+
 }

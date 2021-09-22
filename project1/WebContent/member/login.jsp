@@ -92,7 +92,7 @@ $(function(){
 			content:'../member/pwdfind.jsp',
 			player:'iframe',
 			width:450,
-			height:300
+			height:350
 		})
 	})
 	// 로그인
