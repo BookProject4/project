@@ -14,7 +14,7 @@ $(function(){
 		let no=$(this).attr("data-no");
 		$.ajax({
 			type:'post',
-			url:'../recommand/sub_menu.do',
+			url:'../recommand/book_menu.do',
 			data:{"no":no},
 			success:function(result)
 			{

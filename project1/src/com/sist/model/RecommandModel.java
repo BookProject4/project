@@ -18,7 +18,7 @@ public class RecommandModel {
 		return"../main/main.jsp";
 		
 	}
-	@RequestMapping("recommand_book_menu.do")
+	@RequestMapping("recommand/book_menu.do")
 	public String book_menu(HttpServletRequest request, HttpServletResponse response)
 	{
 		//A.jax
