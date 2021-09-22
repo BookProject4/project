@@ -192,11 +192,10 @@
 													</li>
 													<li><a href="../community/list.do">창작마당</a></li>	
 													<li><a href="#">QnA</a></li>	
-													<li><a href="../contact/contact.do">문의</a></li>
+													<li><a href="../contact/list.do">문의</a></li>
 													<li><a href="../notice/list.do">공지사항</a></li>	
 												</ul>
 											</div>
->>>>>>> branch 'master' of https://github.com/BookProject4/project.git
 										</div>
 									</nav>
 									<!--/ End Main Menu -->	
