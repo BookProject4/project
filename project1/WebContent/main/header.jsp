@@ -160,43 +160,6 @@
 				</div>
 			</div>
 		</div>
-		<!-- Header Inner -->
-<<<<<<< HEAD
-		<div class="header-inner">
-			<div class="container">
-				<div class="cat-nav-head">
-					<div class="row">
-						<div class="col-12">
-							<div class="menu-area">
-								<!-- Main Menu -->
-								<nav class="navbar navbar-expand-lg">
-									<div class="navbar-collapse">
-										<div class="nav-inner">
-											<ul class="nav main-menu menu navbar-nav">
-												<li><a href="../main/main.do">Home</a></li>
-												<li><a href="#">도서<i class="ti-angle-down"></i></a>
-													<ul class="dropdown">
-														<li><a href="../book/book_list.do?cate1=가정">가정</a></li>
-														<li><a href="../book/book_list.do?cate1=여가">여가</a></li>
-														<li><a href="../book/book_list.do?cate1=학문">학문</a></li>
-														<li><a href="../book/book_list.do?cate1=교육">교육</a></li>
-														<li><a href="../book/book_list.do?cate1=문학">문학</a></li>
-														<li><a href="../book/book_list.do?cate1=해외">해외</a></li>
-														<li><a href="../book/book_list.do?cate1=기타">기타</a></li>
-													</ul></li>
-												<li><a href="#">추천<i class="ti-angle-down"></i><span
-														class="new">New</span></a>
-													<ul class="dropdown">
-														<li><a href="#">신간</a></li>
-														<li><a href="#">인기</a></li>
-														<li><a href="#">태그</a></li>
-													</ul></li>
-												<li><a href="../community/list.do">창작마당</a></li>
-												<li><a href="#">QnA</a></li>
-												<li><a href="../contact/list.do">문의</a></li>
-												<li><a href="../notice/list.do">공지사항</a></li>
-											</ul>
-=======
 			<div class="header-inner">
 				<div class="container">
 					<div class="cat-nav-head">
