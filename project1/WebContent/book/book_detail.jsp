@@ -204,7 +204,7 @@
 							<h3 class="title">Quick Menu</h3>
 							<ul class="categor-list">
 								<li><a href="#">바로구매</a></li>
-								<li><a href="#">창작마당</a></li>
+								<li><a href="../community/list.do">창작마당</a></li>
 								<li><a href="#">장바구니</a></li>
 							</ul>
 						</div>
