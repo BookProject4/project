@@ -76,7 +76,7 @@ $(function(){
 				{
 					$('#result').html('다시 입력해 주세요');
 					$('#pwdfindBtn').hide();
-					$('#ok').show();
+					$('#okBtn').show();
 				}
 				else 
 				{

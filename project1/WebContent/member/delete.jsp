@@ -136,7 +136,7 @@
 					  </div>
 					</div>
 				</div>
-					  <div class="col-lg-4 col-12">
+					 <div class="col-lg-4 col-12">
 						<div class="main-sidebar">
 							<!-- Single Widget -->
 							<div class="single-widget category">
@@ -145,30 +145,30 @@
 									<li><a href="../member/detail.do">내 정보</a></li>
 									<li><a href="../member/update.do">회원정보 수정</a></li>
 									<li><a href="../member/delete.do">회원탈퇴</a></li>
+									<li><a href="#">배송주소록</a></li>
+									<li><a href="#">마이리뷰</a></li>
 								</ul>
 							</div>
 							<!--/ End Single Widget -->
 							<!-- Single Widget -->
 							<div class="single-widget category">
-								<h3 class="title">Blog Categories</h3>
+								<h3 class="title">주문내역</h3>
 								<ul class="categor-list">
-									<li><a href="#">Men's Apparel</a></li>
-									<li><a href="#">Women's Apparel</a></li>
-									<li><a href="#">Bags Collection</a></li>
-									<li><a href="#">Accessories</a></li>
-									<li><a href="#">Sun Glasses</a></li>
+									<li><a href="#">주문조회/변경/취소</a></li>
+									<li><a href="#">반품/교환 내역</a></li>
+									<li><a href="#">취소 주문 내역</a></li>
+									<li><a href="#">eBook 구매목록</a></li>
 								</ul>
 							</div>
 							<!--/ End Single Widget -->
 							<!-- Single Widget -->
 							<div class="single-widget category">
-								<h3 class="title">Blog Categories</h3>
+								<h3 class="title">고객센터</h3>
 								<ul class="categor-list">
-									<li><a href="#">Men's Apparel</a></li>
-									<li><a href="#">Women's Apparel</a></li>
-									<li><a href="#">Bags Collection</a></li>
-									<li><a href="#">Accessories</a></li>
-									<li><a href="#">Sun Glasses</a></li>
+									<li><a href="#">나의계정 도움말</a></li>
+									<li><a href="#">자주 묻는 질문 FAQ</a></li>
+									<li><a href="#">공지사항</a></li>
+									<li><a href="#">1:1 고객상담</a></li>
 								</ul>
 							</div>
 							<!--/ End Single Widget -->
