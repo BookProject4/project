@@ -92,6 +92,9 @@ public class BookModel {
 	// 댓글 수정 전
 	@RequestMapping("book/reply_preUpdate.do")
 	public String reply_preUpdate(HttpServletRequest request,HttpServletResponse response){
+		try{
+			request.setCharacterEncoding("UTF-8");
+		}catch(Exception ex) {}
 		String isbn=request.getParameter("isbn");
 		String no=request.getParameter("no");
 		String msg=request.getParameter("msg");
