@@ -60,7 +60,7 @@ $(function(){
 				}
 			}
 		});
-	})
+})
 </script>
 </head>
 <body class="js">
@@ -216,7 +216,7 @@ $(function(){
 											<div class="nav-inner">	
 												<ul class="nav main-menu menu navbar-nav">
 													<li><a href="../main/main.do">Home</a></li>
-													<li><a href="#">도서(부교재포함)<i class="ti-angle-down"></i></a>
+													<li><a href="#">도서<i class="ti-angle-down"></i></a>
 														<ul class="dropdown">
 															<li><a href="../book/book_list.do?cate1=가정">가정</a></li>
 															<li><a href="../book/book_list.do?cate1=여가">여가</a></li>
