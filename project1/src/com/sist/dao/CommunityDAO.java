@@ -113,7 +113,7 @@ public class CommunityDAO {
 		try {
 			getConnection();
 			String sql="INSERT INTO community (no,name,subject,content,pwd,filename,filesize) "
-					+ "VALUES (pf_no_seq.nextval,?,?,?,?,?,?)";
+					+ "VALUES (pc_no_seq.nextval,?,?,?,?,?,?)";
 			ps=conn.prepareStatement(sql);
 			ps.setString(1, vo.getName());
 			ps.setString(2, vo.getSubject());

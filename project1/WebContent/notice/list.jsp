@@ -10,24 +10,15 @@
 <body>
 <div class="wrapper row3">
   <main class="container clear"> 
-  <c:if test="${SessionScope.id==null }">
-    <table class="table">
-    	<tr>
-    		<td style="display:none">
-    			<a href="../notice/insert.do" class="btn">새글</a>
-    		</td>
-    	</tr>
-	</table>
-	</c:if>
-	<c:if test="${SessionScope.Sign_up == 'y'}">
-    <table class="table">
-    	<tr>
-    		<td>
-    			<a href="../notice/insert.do" class="btn">새글</a>
-    		</td>
-    	</tr>
-	</table>
-	</c:if>
+  <c:if test="${sessionScope.admin=='y'}">
+      <table class="table">
+        <tr>
+         <td>
+           <a href="../notice/insert.do" class="btn btn-sm btn-danger">공지등록</a>
+         </td>
+        </tr>
+      </table>
+    </c:if>
 	<table class="table">
 		<tr>
     		<th width=10% class="text-center">번호</th>
